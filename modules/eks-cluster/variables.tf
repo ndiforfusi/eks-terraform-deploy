@@ -20,11 +20,19 @@ variable "private_subnets" {
   type        = list(any)
 }
 
+
 ################################################################################
 # Variables defined using Environment Variables
 ################################################################################
 
 variable "rolearn" {
-  description = "Add admin role to the aws-auth configmap"
+  type        = string
+  description = "rolearn id value"
+  default = "arn:aws:iam::339712828145:role/eks_full_access"
 }
+
+
+
+
+
 
