@@ -77,5 +77,9 @@ module "aws_alb_controller" {
 #   private_subnets           = module.vpc.private_subnets
 #   grafana_security_group_id = module.managed_grafana.security_group_id
 # }
+module "RDS" {
+  source      = "./modules/RDS"
+  main-region = var.main-region
+}
 
 
