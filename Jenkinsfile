@@ -1,7 +1,7 @@
 pipeline {
-    agent { node { label "terraform-node" } } 
+    agent { node { label 'terraform-node' } } 
     parameters {
-                choice(name: 'deploy_choice', choices:['apply','destroy'],description:'The deployment type')
+                choice(name: 'Deployment_Type', choices:['apply','destroy'],description:'The deployment type')
                   }
     environment {
         EMAIL_TO = 'fusisoft@gmail.com'
@@ -33,11 +33,10 @@ pipeline {
         }
         stage('4.Terraform Deploy') {              
             steps { 
-                echo 'Terraform ${params.deploy_choice} phase'  
-                sh "AWS_REGION=us-west-2 terraform ${params.deploy_choice}  -target=module.vpc -target=module.eks --auto-approve"
-                sh "aws eks --region us-west-2 update-kubeconfig --name dominion-cluster && export KUBE_CONFIG_PATH=~/.kube/config"
-                sh "AWS_REGION=us-west-2 terraform ${params.deploy_choice} --auto-approve"
-            }
+                echo 'Terraform ${params.Deployment_Type} phase'  
+                sh "AWS_REGION=us-west-2 terraform ${params.Deployment_Type} --auto-approve"
+                sh("""scripts/update-kubeconfig.sh""")                
+                }
                 }
         stage ('5. Email Notification') {
             steps {
@@ -50,4 +49,4 @@ pipeline {
                }    
           }
      }       
-}   
+} 
