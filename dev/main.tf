@@ -3,7 +3,7 @@
 # ################################################################################
 
 module "vpc" {
-  source      = "./modules/vpc"
+  source      = "./../modules/vpc"
   main-region = var.main-region
 }
 
@@ -12,7 +12,7 @@ module "vpc" {
 # ################################################################################
 
 module "eks" {
-  source = "./modules/eks-cluster"
+  source = "./../modules/eks-cluster"
 
   rolearn = var.rolearn
 
@@ -25,7 +25,7 @@ module "eks" {
 # ################################################################################
 
 module "aws_alb_controller" {
-  source = "./modules/aws-alb-controller"
+  source = "./../modules/aws-alb-controller"
 
   main-region  = var.main-region
   env_name     = var.env_name
