@@ -12,9 +12,9 @@ module "vpc" {
 # ################################################################################
 
 module "eks" {
-  source = "./../modules/eks-cluster"
+  source       = "./../modules/eks-cluster"
   cluster_name = var.cluster_name
-  rolearn = var.rolearn
+  rolearn      = var.rolearn
 
   vpc_id          = module.vpc.vpc_id
   private_subnets = module.vpc.private_subnets
