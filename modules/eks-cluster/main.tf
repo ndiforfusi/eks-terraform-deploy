@@ -92,33 +92,33 @@ resource "kubernetes_namespace" "gateway" {
 }
 
 
-resource "kubernetes_namespace" "directory" {
-  metadata {
-    annotations = {
-      name = "directory"
-    }
+# resource "kubernetes_namespace" "directory" {
+#   metadata {
+#     annotations = {
+#       name = "directory"
+#     }
 
-    labels = {
-      app = "webapp"
-    }
+#     labels = {
+#       app = "webapp"
+#     }
 
-    name = "directory"
-  }
-}
+#     name = "directory"
+#   }
+# }
 
 
 
-resource "kubernetes_namespace" "analytics" {
-  metadata {
-    annotations = {
-      name = "analytics"
-    }
+# resource "kubernetes_namespace" "analytics" {
+#   metadata {
+#     annotations = {
+#       name = "analytics"
+#     }
 
-    labels = {
-      app = "webapp"
-    }
+#     labels = {
+#       app = "webapp"
+#     }
 
-    name = "analytics"
-  }
-}
+#     name = "analytics"
+#   }
+# }
 
