@@ -33,7 +33,7 @@ module "managed_grafana" {
     viewer = {
       key_name        = "viewer"
       key_role        = "VIEWER"
-      seconds_to_live = 3600
+     seconds_to_live = 3600
     }
     editor = {
       key_name        = "editor"
@@ -45,7 +45,7 @@ module "managed_grafana" {
       key_role        = "ADMIN"
       seconds_to_live = 3600
     }
-  }
+  } 
 
 
   # Role associations
