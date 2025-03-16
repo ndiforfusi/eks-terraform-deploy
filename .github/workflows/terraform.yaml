@@ -81,7 +81,7 @@ jobs:
       working-directory: ${{ env.TF_WORKING_DIR }}
       run: |
         set -e
-        terraform apply -auto-approve -lock=false
+        terraform destroy -auto-approve -lock=false
 
 
     - name: "Terraform Destroy"
