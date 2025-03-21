@@ -14,7 +14,7 @@ on:
       environment:
         description: "Deployment Environment (dev, uat, prod)"
         required: true
-        default: "prod"
+        default: "dev"
       region:
         description: "AWS Region"
         required: true
